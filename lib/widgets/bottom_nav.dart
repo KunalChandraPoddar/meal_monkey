@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
 import 'package:meal_monkey/modules/home/home_controller.dart';
@@ -18,7 +19,6 @@ class BottomNav extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          // 1. THE SHADOW LAYER (Now with a real blur effect)
           CustomPaint(
             size: Size(MediaQuery.of(context).size.width, 80),
             painter: NavShadowPainter(clipper: BottomNavClipper()),
@@ -28,7 +28,7 @@ class BottomNav extends StatelessWidget {
             clipper: BottomNavClipper(),
             child: Container(
               height: 80,
-              color: Colors.white, 
+              color: AppColors.appBackgroundColor, 
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -42,7 +42,6 @@ class BottomNav extends StatelessWidget {
             ),
           ),
 
-          // 3. THE HOME BUTTON (Positioned to sit in the scoop)
           Positioned(
             top: 15,
             child: GestureDetector(
@@ -53,7 +52,7 @@ class BottomNav extends StatelessWidget {
                   height: 65, width: 65,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: const Color(0xFFB6B7B7),
+                    color: AppColors.hintTextColor,
                   ),
                   child: Center(
                     child: Image.asset(

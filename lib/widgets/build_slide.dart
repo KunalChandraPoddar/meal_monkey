@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_text_styles.dart';
 import '../modules/onboarding/onboarding_controller.dart';
 
@@ -44,8 +45,8 @@ class BuildSlide extends StatelessWidget {
                   height: controller.currentIndex.value == dotIndex ? 10 : 8,
                   decoration: BoxDecoration(
                     color: controller.currentIndex.value == dotIndex
-                        ? const Color(0xFFFF6C00)
-                        : Colors.grey.shade300,
+                        ? AppColors.orangeButtonColor
+                        : AppColors.sliderCircleColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),

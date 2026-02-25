@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
 import 'package:meal_monkey/splash/splash_controller.dart';
 import 'package:meal_monkey/core/wrapper/status_bar_wrapper.dart';
@@ -12,7 +13,7 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StatusBarWrapper(
-      backgroundColor: const Color(0xFFFF6C00),
+      backgroundColor: AppColors.appBackgroundColor,
       child: Scaffold(
         body: Stack(
           children: [

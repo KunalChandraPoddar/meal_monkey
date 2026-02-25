@@ -59,7 +59,7 @@ class OnboardingView extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: controller.nextPage,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFFF6C00),
+                  backgroundColor: AppColors.orangeButtonColor,
                   minimumSize: const Size(double.infinity, 55),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),

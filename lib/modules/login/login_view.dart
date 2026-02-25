@@ -41,21 +41,12 @@ class LoginView extends StatelessWidget {
                       const Text(
                         AppStrings.login,
                         style: AppTextStyles.headTitle,
-                        // TextStyle(
-                        //   fontSize: 30,
-                        //   fontWeight: FontWeight.w500,
-                        //   color: Colors.black87,
-                        // ),
                       ),
 
                       const SizedBox(height: 10),
 
                       Text(
                         AppStrings.loginPageHeadText,
-                        // style: TextStyle(
-                        //   color: AppColors.subHeadingColor,
-                        //   fontSize: 16,
-                        // ),
                         style: AppTextStyles.mediumTitle,
                       ),
 
@@ -96,7 +87,6 @@ class LoginView extends StatelessWidget {
 
                       Text(
                         AppStrings.frogotPassWord,
-                        // style: TextStyle(color: AppColors.subHeadingColor),
                         style: AppTextStyles.mediumTitle,
                       ),
 
@@ -107,7 +97,6 @@ class LoginView extends StatelessWidget {
                         children: [
                           Text(
                             AppStrings.noaccountText,
-                            // style: TextStyle(color: AppColors.subHeadingColor),
                             style: AppTextStyles.mediumTitle,
                           ),
                           GestureDetector(

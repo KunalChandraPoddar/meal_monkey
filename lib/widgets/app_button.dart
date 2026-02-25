@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_monkey/core/constatns/app_colors.dart';
 
 class AppButton extends StatelessWidget {
   final String text;
@@ -16,8 +17,8 @@ class AppButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.isOutlined = false,
-    this.backgroundColor = const Color(0xFFFF6C00),
-    this.textColor = Colors.white,
+    this.backgroundColor = AppColors.orangeButtonColor,
+    this.textColor = AppColors.appBackgroundColor,
     this.borderRadius = 30,
     this.height = 55,
   });

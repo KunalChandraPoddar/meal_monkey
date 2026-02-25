@@ -37,10 +37,6 @@ class SignupView extends StatelessWidget {
                       const SizedBox(height: 40),
                       const Text(
                         AppStrings.signUp,
-                        // style: TextStyle(
-                        //   fontSize: 30,
-                        //   fontWeight: FontWeight.w500,
-                        // ),
                         style: AppTextStyles.headTitle,
                       ),
 
@@ -48,10 +44,6 @@ class SignupView extends StatelessWidget {
 
                       Text(
                         AppStrings.signUPPageHeadText,
-                        // style: TextStyle(
-                        //   color: AppColors.subHeadingColor,
-                        //   // fontSize: 16,
-                        // ),
                         style: AppTextStyles.mediumTitle,
                       ),
 
@@ -103,7 +95,6 @@ class SignupView extends StatelessWidget {
                         children: [
                           Text(
                             AppStrings.alreadyAccount,
-                            // style: TextStyle(color: AppColors.subHeadingColor),
                             style: AppTextStyles.mediumTitle,
                           ),
                           GestureDetector(

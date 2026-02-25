@@ -10,12 +10,20 @@ class AppTextStyles {
 
   static TextStyle mediumTitle = TextStyle(
     fontSize: 16,
-    // fontWeight: FontWeight.w500,
     color: AppColors.subHeadingColor,
   );
 
   static TextStyle hintTextStyle = TextStyle(
-    // fontSize: 30,
+    color: AppColors.hintTextColor,
+  );
+
+  static TextStyle catogeryCardTitleStyle = TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.bold,
+    color: AppColors.headingColor,
+  );
+
+  static TextStyle catogeryCardItemCountStyle = TextStyle(
     color: AppColors.hintTextColor,
   );
 }

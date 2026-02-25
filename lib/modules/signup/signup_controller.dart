@@ -28,8 +28,6 @@ class SignupController extends GetxController {
 
     isLoading.value = true;
 
-    // await Future.delayed(const Duration(seconds: 2));
-
     isLoading.value = false;
 
     Get.offAllNamed(AppRoutes.onboarding);

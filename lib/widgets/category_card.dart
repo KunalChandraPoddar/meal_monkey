@@ -1,105 +1,99 @@
 import 'package:flutter/material.dart';
+import 'package:meal_monkey/core/constatns/app_colors.dart';
+import 'package:meal_monkey/core/constatns/app_text_styles.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
 
-  class CategoryCard extends StatelessWidget {
-    final String image;
-    final String items;
-    final String title;
-    final VoidCallback? onTap; 
+class CategoryCard extends StatelessWidget {
+  final String image;
+  final String items;
+  final String title;
+  final VoidCallback? onTap;
 
-    const CategoryCard({
-      super.key,
-      required this.image,
-      required this.items,
-      required this.title,
-      required this.onTap,
-    });
+  const CategoryCard({
+    super.key,
+    required this.image,
+    required this.items,
+    required this.title,
+    required this.onTap,
+  });
 
-    @override
-    Widget build(BuildContext context) {
-      return Container(
-        margin: const EdgeInsets.only(bottom: 25),
-        height: 90,
-        child: Stack(
-          clipBehavior: Clip.none,
-          alignment: Alignment.centerLeft,
-          children: [
-            Positioned(
-              top: 25,
-              left: 40,
-              right: 20,
-              child: Container(
-                height: 85,
-                padding: const EdgeInsets.only(left: 55, right: 50),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    bottomLeft: Radius.circular(30),
-                    topRight: Radius.circular(15),
-                    bottomRight: Radius.circular(15),
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 25),
+      height: 90,
+      child: Stack(
+        clipBehavior: Clip.none,
+        alignment: Alignment.centerLeft,
+        children: [
+          Positioned(
+            top: 25,
+            left: 40,
+            right: 20,
+            child: Container(
+              height: 85,
+              padding: const EdgeInsets.only(left: 55, right: 50),
+              decoration: BoxDecoration(
+                color: AppColors.appBackgroundColor,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  bottomLeft: Radius.circular(30),
+                  topRight: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+                boxShadow: const [
+                  BoxShadow(
+                    blurRadius: 18,
+                    color: Colors.black12,
+                    offset: Offset(0, 6),
                   ),
-                  boxShadow: const [
-                    BoxShadow(
-                      blurRadius: 18,
-                      color: Colors.black12,
-                      offset: Offset(0, 6),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 3),
-                    Text(items, style: const TextStyle(color: Colors.grey)),
-                  ],
-                ),
+                ],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: AppTextStyles.catogeryCardTitleStyle),
+                  const SizedBox(height: 3),
+                  Text(items, style: AppTextStyles.catogeryCardItemCountStyle),
+                ],
               ),
             ),
+          ),
 
-            Positioned(
-              top: 26.5,
-              left: 0,
-              child: Container(
-                height: 85,
-                width: 85,
-                decoration: const BoxDecoration(shape: BoxShape.circle),
-                child: ClipOval(child: Image.asset(image, fit: BoxFit.cover)),
-              ),
+          Positioned(
+            top: 26.5,
+            left: 0,
+            child: Container(
+              height: 85,
+              width: 85,
+              decoration: const BoxDecoration(shape: BoxShape.circle),
+              child: ClipOval(child: Image.asset(image, fit: BoxFit.cover)),
             ),
+          ),
 
-            Positioned(
-              top: 50,
-              right: 3,
-              child: Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      blurRadius: 12,
-                      color: Colors.black12,
-                      offset: Offset(0, 6),
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Image.asset(AssetPath.arrow, height: 14),
-                ),
+          Positioned(
+            top: 53,
+            right: 3,
+            child: Container(
+              height: 30,
+              width: 30,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.appBackgroundColor,
+                boxShadow: const [
+                  BoxShadow(
+                    blurRadius: 12,
+                    color: Colors.black12,
+                    offset: Offset(0, 6),
+                  ),
+                ],
               ),
+              child: Center(child: Image.asset(AssetPath.arrow, height: 14)),
             ),
-          ],
-        ),
-      );
-    }
+          ),
+        ],
+      ),
+    );
   }
+}
