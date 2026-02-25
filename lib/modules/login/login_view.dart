@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:meal_monkey/app/routes/app_routes.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
+import 'package:meal_monkey/core/constatns/app_text_styles.dart';
 import 'package:meal_monkey/widgets/app_button.dart';
 import 'package:meal_monkey/widgets/text_area_rounded_field.dart';
 import 'package:meal_monkey/core/wrapper/status_bar_wrapper.dart';
@@ -27,7 +28,7 @@ class LoginView extends StatelessWidget {
           backgroundColor: AppColors.appBackgroundColor,
 
           child: Scaffold(
-            backgroundColor: const Color(0xFFF5F5F5),
+            backgroundColor: AppColors.appBackgroundColor,
             body: SafeArea(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
@@ -39,18 +40,23 @@ class LoginView extends StatelessWidget {
 
                       const Text(
                         AppStrings.login,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black87,
-                        ),
+                        style: AppTextStyles.headTitle,
+                        // TextStyle(
+                        //   fontSize: 30,
+                        //   fontWeight: FontWeight.w500,
+                        //   color: Colors.black87,
+                        // ),
                       ),
 
                       const SizedBox(height: 10),
 
-                      const Text(
-                        AppStrings.loginPageHeadTExt,
-                        style: TextStyle(color: Colors.grey, fontSize: 16),
+                      Text(
+                        AppStrings.loginPageHeadText,
+                        // style: TextStyle(
+                        //   color: AppColors.subHeadingColor,
+                        //   fontSize: 16,
+                        // ),
+                        style: AppTextStyles.mediumTitle,
                       ),
 
                       const SizedBox(height: 40),
@@ -61,7 +67,7 @@ class LoginView extends StatelessWidget {
                         obscure: false,
                       ),
 
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 25),
 
                       TextAreaRoundedField(
                         controller: controller.passwordController,
@@ -78,8 +84,8 @@ class LoginView extends StatelessWidget {
                           text: controller.isLoading.value
                               ? AppStrings.controllerLoadingText
                               : AppStrings.login,
-                          backgroundColor: const Color(0xFFFF6C00),
-                          textColor: Colors.white,
+                          backgroundColor: AppColors.orangeButtonColor,
+                          textColor: AppColors.orangeButtonTextColor,
                           onPressed: () {
                             controller.login();
                           },
@@ -88,9 +94,10 @@ class LoginView extends StatelessWidget {
 
                       const SizedBox(height: 10),
 
-                      const Text(
+                      Text(
                         AppStrings.frogotPassWord,
-                        style: TextStyle(color: Colors.grey),
+                        // style: TextStyle(color: AppColors.subHeadingColor),
+                        style: AppTextStyles.mediumTitle,
                       ),
 
                       const SizedBox(height: 40),
@@ -98,22 +105,25 @@ class LoginView extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text(AppStrings.noaccountText),
+                          Text(
+                            AppStrings.noaccountText,
+                            // style: TextStyle(color: AppColors.subHeadingColor),
+                            style: AppTextStyles.mediumTitle,
+                          ),
                           GestureDetector(
                             onTap: () {
                               Get.toNamed(AppRoutes.signup);
                             },
-                            child: const Text(
+                            child: Text(
                               AppStrings.signUp,
                               style: TextStyle(
-                                color: Color(0xFFFF6C00),
+                                color: AppColors.orangeButtonColor,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                         ],
                       ),
-
                       const SizedBox(height: 30),
                     ],
                   ),

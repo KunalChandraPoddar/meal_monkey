@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meal_monkey/core/constatns/app_colors.dart';
+import 'package:meal_monkey/core/constatns/app_text_styles.dart';
 
 class TextAreaRoundedField extends StatelessWidget {
   final TextEditingController controller;
@@ -26,8 +28,9 @@ class TextAreaRoundedField extends StatelessWidget {
       obscureText: obscure,
       decoration: InputDecoration(
         hintText: hint,
+        hintStyle: AppTextStyles.hintTextStyle,
         filled: true,
-        fillColor: const Color(0xFFEDEDED),
+        fillColor: AppColors.textFieldFillColor,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 25,
           vertical: 18,

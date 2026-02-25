@@ -14,6 +14,7 @@ class AssetPath {
   static final String searchIcon = "lib/assets/png/search.png";
 
   static final String orangeSideBar = "lib/assets/png/Side bar orange.png";
+  static final String arrow = "lib/assets/png/arrow.png";
 
   static final String foodImage = "lib/assets/png/Food.png";
   static final String beveragesImage = "lib/assets/png/Beverage.png";

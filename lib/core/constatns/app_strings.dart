@@ -6,7 +6,7 @@ class AppStrings {
   static const String initialScreenParagraph =
       "Discover the best food from over 1,000 restaurants and fast delivery to your doorstep";
 
-  static const String loginPageHeadTExt = "Add your details to login";
+  static const String loginPageHeadText = "Add your details to login";
 
   static const String emailHint = "Your Email";
   static const String passwordHint = "Password";
@@ -19,7 +19,7 @@ class AppStrings {
   static const String signingUp = "Signing Up...";
   static const String frogotPassWord = "Forgot your password?";
 
-  static const String signUPPageHeadTExt = "Add your details to sign up";
+  static const String signUPPageHeadText = "Add your details to sign up";
   static const String noaccountText = "Don't have an Account? ";
   static const String alreadyAccount = "Already have an Account? ";
 

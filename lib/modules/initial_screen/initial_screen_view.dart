@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
 import 'package:meal_monkey/widgets/app_button.dart';
@@ -44,14 +45,14 @@ class InitialScreenView extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 70),
+            const SizedBox(height: 25),
 
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
                 AppStrings.initialScreenParagraph,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey, fontSize: 16),
+                style: TextStyle(color: AppColors.subHeadingColor, fontSize: 16),
               ),
             ),
 
@@ -63,8 +64,8 @@ class InitialScreenView extends StatelessWidget {
                 children: [
                   AppButton(
                     text: AppStrings.login,
-                    backgroundColor: const Color(0xFFFF6C00),
-                    textColor: Colors.white,
+                    backgroundColor: AppColors.orangeButtonColor,
+                    textColor: AppColors.orangeButtonTextColor,
                     onPressed: () {
                       Get.toNamed(AppRoutes.login);
                     },
@@ -73,8 +74,8 @@ class InitialScreenView extends StatelessWidget {
                   AppButton(
                     text: AppStrings.createAccount,
                     isOutlined: true,
-                    backgroundColor: const Color(0xFFFF6C00),
-                    textColor: const Color(0xFFFF6C00),
+                    backgroundColor: AppColors.orangeButtonColor,
+                    textColor: AppColors.whiteButtonTExtColor,
                     onPressed: () {
                       Get.toNamed(AppRoutes.signup);
                     },

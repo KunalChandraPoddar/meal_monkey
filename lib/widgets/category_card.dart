@@ -1,4 +1,5 @@
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:meal_monkey/core/constatns/asset_path.dart';
 
   class CategoryCard extends StatelessWidget {
     final String image;
@@ -18,16 +19,17 @@
     Widget build(BuildContext context) {
       return Container(
         margin: const EdgeInsets.only(bottom: 25),
-        height: 70,
+        height: 90,
         child: Stack(
           clipBehavior: Clip.none,
           alignment: Alignment.centerLeft,
           children: [
             Positioned(
+              top: 25,
               left: 40,
-              right: 0,
+              right: 20,
               child: Container(
-                height: 70,
+                height: 85,
                 padding: const EdgeInsets.only(left: 55, right: 50),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -56,7 +58,7 @@
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 3),
                     Text(items, style: const TextStyle(color: Colors.grey)),
                   ],
                 ),
@@ -64,20 +66,22 @@
             ),
 
             Positioned(
+              top: 26.5,
               left: 0,
               child: Container(
-                height: 70,
-                width: 70,
+                height: 85,
+                width: 85,
                 decoration: const BoxDecoration(shape: BoxShape.circle),
                 child: ClipOval(child: Image.asset(image, fit: BoxFit.cover)),
               ),
             ),
 
             Positioned(
-              right: -8,
+              top: 50,
+              right: 3,
               child: Container(
-                height: 36,
-                width: 36,
+                height: 30,
+                width: 30,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
@@ -90,7 +94,7 @@
                   ],
                 ),
                 child: Center(
-                  child: Image.asset("lib/assets/png/arrow.png", height: 14),
+                  child: Image.asset(AssetPath.arrow, height: 14),
                 ),
               ),
             ),

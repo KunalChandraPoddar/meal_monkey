@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/modules/home/home_controller.dart';
 
 class NavItem extends StatelessWidget {
@@ -39,8 +40,8 @@ class NavItem extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12,
                 color: isActive
-                    ? const Color(0xFFFF6C00)
-                    : Colors.grey,
+                    ? AppColors.orangeButtonColor
+                    : AppColors.hintTextColor,
               ),
             ),
           ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
+import 'package:meal_monkey/core/constatns/app_text_styles.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
 import 'package:meal_monkey/widgets/category_card.dart';
 import 'home_controller.dart';
@@ -24,10 +25,10 @@ class HomeView extends StatelessWidget {
             Positioned(
               left: 0,
               top: 150,
-              bottom: 120,
               child: Image.asset(
                 AssetPath.orangeSideBar,
-                width: 90,
+                height: 490,
+                width: 95,
                 fit: BoxFit.fill,
               ),
             ),
@@ -61,17 +62,18 @@ class HomeView extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
+                      color: Colors.grey.shade100,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: Row(
                       children: [
                         Image.asset(AssetPath.searchIcon, height: 20),
                         const SizedBox(width: 10),
-                        const Expanded(
+                        Expanded(
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: AppStrings.searchFoodHintText,
+                              hintStyle: AppTextStyles.hintTextStyle,
                               border: InputBorder.none,
                             ),
                           ),
@@ -84,6 +86,7 @@ class HomeView extends StatelessWidget {
 
                   Expanded(
                     child: ListView(
+                      physics: const NeverScrollableScrollPhysics(),
                       children: [
                         CategoryCard(
                           title: AppStrings.food,
@@ -99,7 +102,7 @@ class HomeView extends StatelessWidget {
                         ),
                         CategoryCard(
                           title: AppStrings.desserts,
-                          items: AppStrings.beveragesItemCount,
+                          items: AppStrings.dessertsItemCount,
                           image: AssetPath.dessertsImage,
                           onTap: () {},
                         ),

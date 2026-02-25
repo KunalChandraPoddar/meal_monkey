@@ -18,7 +18,7 @@ class LoginController extends GetxController {
 
     isLoading.value = true;
 
-    await Future.delayed(const Duration(seconds: 2));
+    // await Future.delayed(const Duration(seconds: 2));
 
     isLoading.value = false;
 

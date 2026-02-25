@@ -41,7 +41,7 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: '/onboarding',
+      name: AppRoutes.onboarding,
       page: () => OnboardingView(),
       binding: OnboardingBinding(),
     ),

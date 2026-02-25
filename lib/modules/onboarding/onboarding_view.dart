@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
+import 'package:meal_monkey/widgets/build_slide.dart';
 import 'onboarding_controller.dart';
 
 class OnboardingView extends StatelessWidget {
@@ -42,36 +43,16 @@ class OnboardingView extends StatelessWidget {
                 itemCount: slides.length,
                 onPageChanged: controller.onPageChanged,
                 itemBuilder: (context, index) {
-                  return _buildSlide(
-                    slides[index][AppStrings.image]!,
-                    slides[index][AppStrings.title]!,
-                    slides[index][AppStrings.desc]!,
+                  return BuildSlide(
+                    image: slides[index][AppStrings.image]!,
+                    title: slides[index][AppStrings.title]!,
+                    desc: slides[index][AppStrings.desc]!,
+                    index: index,
+                    totalSlides: slides.length,
                   );
                 },
               ),
             ),
-
-            Obx(
-              () => Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  slides.length,
-                  (index) => Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    width: controller.currentIndex.value == index ? 10 : 8,
-                    height: controller.currentIndex.value == index ? 10 : 8,
-                    decoration: BoxDecoration(
-                      color: controller.currentIndex.value == index
-                          ? const Color(0xFFFF6C00)
-                          : Colors.grey,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 30),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -84,39 +65,15 @@ class OnboardingView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
-                child: const Text(
-                 AppStrings.next,
-                  style: TextStyle(color: Colors.white),
+                child: Text(
+                  AppStrings.next,
+                  style: const TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
             ),
-
-            const SizedBox(height: 60),
+            const SizedBox(height: 70),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildSlide(String image, String title, String desc) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(image, height: 280),
-          const SizedBox(height: 40),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 15),
-          Text(
-            desc,
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.grey, fontSize: 14),
-          ),
-        ],
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:meal_monkey/app/routes/app_routes.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
+import 'package:meal_monkey/core/constatns/app_text_styles.dart';
 import 'package:meal_monkey/widgets/app_button.dart';
 import 'package:meal_monkey/core/wrapper/status_bar_wrapper.dart';
 import 'signup_controller.dart';
@@ -25,7 +26,7 @@ class SignupView extends StatelessWidget {
         child: StatusBarWrapper(
           backgroundColor: AppColors.appBackgroundColor,
           child: Scaffold(
-            backgroundColor: const Color(0xFFF5F5F5),
+            backgroundColor: AppColors.appBackgroundColor,
             body: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: SafeArea(
@@ -36,17 +37,22 @@ class SignupView extends StatelessWidget {
                       const SizedBox(height: 40),
                       const Text(
                         AppStrings.signUp,
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        // style: TextStyle(
+                        //   fontSize: 30,
+                        //   fontWeight: FontWeight.w500,
+                        // ),
+                        style: AppTextStyles.headTitle,
                       ),
 
                       const SizedBox(height: 10),
 
-                      const Text(
-                        AppStrings.signUPPageHeadTExt,
-                        style: TextStyle(color: Colors.grey, fontSize: 16),
+                      Text(
+                        AppStrings.signUPPageHeadText,
+                        // style: TextStyle(
+                        //   color: AppColors.subHeadingColor,
+                        //   // fontSize: 16,
+                        // ),
+                        style: AppTextStyles.mediumTitle,
                       ),
 
                       const SizedBox(height: 30),
@@ -57,7 +63,7 @@ class SignupView extends StatelessWidget {
                         obscure: false,
                       ),
 
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 25),
 
                       TextAreaRoundedField(
                         controller: controller.passwordController,
@@ -65,7 +71,7 @@ class SignupView extends StatelessWidget {
                         obscure: true,
                       ),
 
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 25),
 
                       TextAreaRoundedField(
                         controller: controller.confirmPasswordController,
@@ -73,21 +79,20 @@ class SignupView extends StatelessWidget {
                         obscure: true,
                       ),
 
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 25),
 
                       Obx(
                         () => SizedBox(
                           width: double.infinity,
                           height: 55,
-                          child:
-                              AppButton(
-                                text: controller.isLoading.value
-                                    ? AppStrings.signingUp
-                                    : AppStrings.signUp,
-                                backgroundColor: const Color(0xFFFF6C00),
-                                textColor: Colors.white,
-                                onPressed: controller.signup,
-                              ),
+                          child: AppButton(
+                            text: controller.isLoading.value
+                                ? AppStrings.signingUp
+                                : AppStrings.signUp,
+                            backgroundColor: AppColors.orangeButtonColor,
+                            textColor: AppColors.orangeButtonTextColor,
+                            onPressed: controller.signup,
+                          ),
                         ),
                       ),
 
@@ -96,13 +101,17 @@ class SignupView extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text(AppStrings.alreadyAccount),
+                          Text(
+                            AppStrings.alreadyAccount,
+                            // style: TextStyle(color: AppColors.subHeadingColor),
+                            style: AppTextStyles.mediumTitle,
+                          ),
                           GestureDetector(
                             onTap: controller.goToLogin,
-                            child: const Text(
+                            child: Text(
                               AppStrings.login,
                               style: TextStyle(
-                                color: Color(0xFFFF6C00),
+                                color: AppColors.orangeButtonColor,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
