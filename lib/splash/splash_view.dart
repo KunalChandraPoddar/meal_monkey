@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
@@ -18,7 +19,7 @@ class SplashView extends StatelessWidget {
         body: Stack(
           children: [
             SizedBox.expand(
-              child: Image.asset(
+              child: SvgPicture.asset(
                 AssetPath.splashBackground,
                 fit: BoxFit.cover,
               ),

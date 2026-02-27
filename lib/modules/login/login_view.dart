@@ -90,7 +90,7 @@ class LoginView extends StatelessWidget {
                         style: AppTextStyles.mediumTitle,
                       ),
 
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 30),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

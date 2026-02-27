@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
+import 'package:meal_monkey/widgets/app_button.dart';
 import 'package:meal_monkey/widgets/build_slide.dart';
 import 'onboarding_controller.dart';
 
@@ -35,43 +36,60 @@ class OnboardingView extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.appBackgroundColor,
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-            Expanded(
-              child: PageView.builder(
-                controller: controller.pageController,
-                itemCount: slides.length,
-                onPageChanged: controller.onPageChanged,
-                itemBuilder: (context, index) {
-                  return BuildSlide(
-                    image: slides[index][AppStrings.image]!,
-                    title: slides[index][AppStrings.title]!,
-                    desc: slides[index][AppStrings.desc]!,
-                    index: index,
-                    totalSlides: slides.length,
-                  );
-                },
+            PageView.builder(
+              controller: controller.pageController,
+              itemCount: slides.length,
+              onPageChanged: controller.onPageChanged,
+              itemBuilder: (context, index) {
+                return BuildSlide(
+                  image: slides[index][AppStrings.image]!,
+                  title: slides[index][AppStrings.title]!,
+                  desc: slides[index][AppStrings.desc]!,
+                  index: index,
+                  totalSlides: slides.length,
+                );
+              },
+            ),
+
+            Positioned(
+              top: MediaQuery.of(context).size.height * 0.47,
+              left: 0,
+              right: 0,
+              child: Obx(
+                () => Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    slides.length,
+                    (dotIndex) => AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      width: controller.currentIndex.value == dotIndex ? 9 : 9,
+                      height: controller.currentIndex.value == dotIndex
+                          ? 9
+                          : 9,
+                      decoration: BoxDecoration(
+                        color: controller.currentIndex.value == dotIndex
+                            ? AppColors.orangeButtonColor
+                            : AppColors.sliderCircleColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: ElevatedButton(
+            Positioned(
+              bottom: 120,
+              left: 40,
+              right: 40,
+              child: AppButton(
+                text: AppStrings.next,
                 onPressed: controller.nextPage,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.orangeButtonColor,
-                  minimumSize: const Size(double.infinity, 55),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-                child: Text(
-                  AppStrings.next,
-                  style: const TextStyle(color: Colors.white, fontSize: 16),
-                ),
               ),
             ),
-            const SizedBox(height: 70),
           ],
         ),
       ),

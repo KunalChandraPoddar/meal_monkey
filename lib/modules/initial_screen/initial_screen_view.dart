@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
+import 'package:meal_monkey/core/constatns/app_text_styles.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
 import 'package:meal_monkey/widgets/app_button.dart';
 import '../../app/routes/app_routes.dart';
@@ -16,6 +17,7 @@ class InitialScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true, 
+      backgroundColor: AppColors.appBackgroundColor,
       body: SizedBox.expand(
         child: Column(
           children: [
@@ -32,14 +34,14 @@ class InitialScreenView extends StatelessWidget {
                     ),
                     child: Image.asset(
                       AssetPath.intialPageOrangeTopImage,
-                      height: 500,
+                      height: MediaQuery.of(context).size.height * 0.6, 
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
 
                 Positioned(
-                  top: 320,
+                  top: MediaQuery.of(context).size.height * 0.38, 
                   child: Image.asset(AssetPath.appLogo, height: 155),
                 ),
               ],
@@ -52,11 +54,12 @@ class InitialScreenView extends StatelessWidget {
               child: Text(
                 AppStrings.initialScreenParagraph,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: AppColors.subHeadingColor, fontSize: 16),
+                style: AppTextStyles.mediumTitle,
               ),
             ),
 
-            const Spacer(),
+            const SizedBox(height: 80),
+
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),

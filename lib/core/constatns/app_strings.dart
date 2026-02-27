@@ -51,15 +51,19 @@ class AppStrings {
   static const String dessertsItemCount = "155 Items";
   static const String promotions = "Promotions";
   static const String promotionsItemCount = "25 Items";
+  static const String pizzas = "Pizzas";
+  static const String pizzasItemCount = "20 Items";
+  static const String biryani = "Biryani";
+  static const String biryaniItemCount = "30 Items";
+  static const String resturants = "Resturants";
+  static const String resturantsItemCount = "125 Items";
 
   static const String error = "Error";
   static const String errorAllFields = "Please fill all fields";
   static const String passwordNotMatch = "Passwords do not match";
 
-
   static const String menu = "Menu";
   static const String offers = "Offers";
   static const String profile = "Profile";
   static const String more = "More";
-
 }

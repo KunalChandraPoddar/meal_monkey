@@ -20,6 +20,6 @@ class LoginController extends GetxController {
 
     isLoading.value = false;
 
-    Get.offAllNamed(AppRoutes.onboarding);
+    Get.offAllNamed(AppRoutes.home);
   }
 }

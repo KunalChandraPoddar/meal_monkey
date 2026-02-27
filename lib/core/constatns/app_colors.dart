@@ -5,7 +5,8 @@ class AppColors {
 
   static const suggestionTextColor = Color.fromARGB(255, 132, 129, 129);
 
-  static const subHeadingColor = Color(0xFF868788);
+  // static const subHeadingColor = Color(0xFF868788);
+  static const subHeadingColor = Color(0xFF858687);
 
   static const orangeButtonColor = Color(0xFFFF6C00);
   static const orangeButtonTextColor = Colors.white;
@@ -13,10 +14,10 @@ class AppColors {
   static const whiteButtonColor = Color(0xFFFF6C00);
   static const whiteButtonTExtColor = Color(0xFFFF6C00);
 
-  static const headingColor = Colors.black;
+  static const headingColor = Color(0xFF4A4B4D);
   static const hintTextColor = Colors.grey;
 
-  static const textFieldFillColor = Color(0xFFEDEDED);
+  static const textFieldFillColor = Color(0xFFF2F2F2);
 
   static final sliderCircleColor = Colors.grey.shade300;
 }

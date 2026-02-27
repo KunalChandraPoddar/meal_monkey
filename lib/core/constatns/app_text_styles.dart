@@ -4,12 +4,12 @@ import 'package:meal_monkey/core/constatns/app_colors.dart';
 class AppTextStyles {
   static const TextStyle headTitle = TextStyle(
     fontSize: 30,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w400,
     color: Colors.black,
   );
 
   static TextStyle mediumTitle = TextStyle(
-    fontSize: 16,
+    fontSize: 15,
     color: AppColors.subHeadingColor,
   );
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
@@ -15,9 +16,10 @@ class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
+      height: Get.height * 0.12,
       child: Stack(
         alignment: Alignment.bottomCenter,
+        clipBehavior: Clip.none,
         children: [
           CustomPaint(
             size: Size(MediaQuery.of(context).size.width, 80),
@@ -28,37 +30,71 @@ class BottomNav extends StatelessWidget {
             clipper: BottomNavClipper(),
             child: Container(
               height: 80,
-              color: AppColors.appBackgroundColor, 
+              color: AppColors.appBackgroundColor,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  NavItem(index: 0, label: AppStrings.menu, activeIcon: AssetPath.activeMenu, inactiveIcon: AssetPath.inactiveMenu),
-                  NavItem(index: 1, label: AppStrings.offers, activeIcon: AssetPath.activeOffers, inactiveIcon: AssetPath.inactiveOffers),
+                  NavItem(
+                    key: ValueKey(0),
+                    index: 0,
+                    label: AppStrings.menu,
+                    activeIcon: AssetPath.activeMenu,
+                    inactiveIcon: AssetPath.inactiveMenu,
+                  ),
+                  NavItem(
+                    key: ValueKey(1),
+                    index: 1,
+                    label: AppStrings.offers,
+                    activeIcon: AssetPath.activeOffers,
+                    inactiveIcon: AssetPath.inactiveOffers,
+                  ),
                   const SizedBox(width: 50),
-                  NavItem(index: 2, label: AppStrings.profile, activeIcon: AssetPath.activeProfile, inactiveIcon: AssetPath.inactiveProfile),
-                  NavItem(index: 3, label: AppStrings.more, activeIcon: AssetPath.activeMore, inactiveIcon: AssetPath.inactiveMore),
+                  NavItem(
+                    key: ValueKey(2),
+                    index: 2,
+                    label: AppStrings.profile,
+                    activeIcon: AssetPath.activeProfile,
+                    inactiveIcon: AssetPath.inactiveProfile,
+                  ),
+                  NavItem(
+                    key: ValueKey(3),
+                    index: 3,
+                    label: AppStrings.more,
+                    activeIcon: AssetPath.activeMore,
+                    inactiveIcon: AssetPath.inactiveMore,
+                  ),
                 ],
               ),
             ),
           ),
 
           Positioned(
-            top: 15,
+            top: -9,
             child: GestureDetector(
               onTap: () => controller.changeTab(4),
+              behavior: HitTestBehavior.opaque,
               child: Obx(() {
                 final bool isActive = controller.selectedIndex.value == 4;
                 return Container(
-                  height: 65, width: 65,
+                  height: 65,
+                  width: 65,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: AppColors.hintTextColor,
                   ),
                   child: Center(
-                    child: Image.asset(
+                    child: SvgPicture.asset(
                       isActive ? AssetPath.activeHome : AssetPath.inactiveHome,
                       height: 32,
-                      color: !isActive ? Colors.white : null,
+                      width: 32,
+                      placeholderBuilder: (context) =>
+                          const Icon(Icons.home_filled, color: Colors.orange),
+                      colorFilter: ColorFilter.mode(
+                        !isActive
+                            ? AppColors.appBackgroundColor
+                            : AppColors.orangeButtonColor,
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 );

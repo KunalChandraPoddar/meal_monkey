@@ -1,45 +1,51 @@
 class AssetPath {
+  // static final String appLogo = "lib/assets/svg/Logo 12.svg";
   static final String appLogo = "lib/assets/png/Logo.png";
-  static final String splashBackground = "lib/assets/png/Background icons.png";
 
+  static final String splashBackground = "lib/assets/svg/Background icons.svg";
+
+  // static final String intialPageOrangeTopImage =
+  // "lib/assets/svg/Organe top shape.svg";
   static final String intialPageOrangeTopImage =
       "lib/assets/png/welcome_top_shape.png";
+  // static final String intialPageOrangeTopImage =
+  //     "lib/assets/svg/1.svg";
 
   static final String slider1Image =
-      "lib/assets/png/Find food you love vector.png";
-  static final String slider2Image = "lib/assets/png/Delivery vector.png";
-  static final String slider3Image = "lib/assets/png/Live tracking vector.png";
+      "lib/assets/svg/Find food you love vector.svg";
+  static final String slider2Image = "lib/assets/svg/Delivery vector.svg";
+  static final String slider3Image = "lib/assets/svg/Live tracking vector.svg";
 
-  static final String shoppingCartIcon = "lib/assets/png/shopping-cart.png";
-  static final String searchIcon = "lib/assets/png/search.png";
+  static final String shoppingCartIcon = "lib/assets/svg/shopping-cart.svg";
+  static final String searchIcon = "lib/assets/svg/search.svg";
 
-  static final String orangeSideBar = "lib/assets/png/Side bar orange.png";
-  static final String arrow = "lib/assets/png/arrow.png";
+  static final String orangeSideBar = "lib/assets/svg/Side bar orange.svg";
+  static final String arrow = "lib/assets/svg/arrow.svg";
 
-  static final String foodImage = "lib/assets/png/Food.png";
-  static final String beveragesImage = "lib/assets/png/Beverage.png";
-  static final String dessertsImage = "lib/assets/png/Desserts.png";
-  static final String promotionsImage = "lib/assets/png/Promotions.png";
+  static final String foodImage = "lib/assets/svg/Food.svg";
+  static final String beveragesImage = "lib/assets/svg/Beverage.svg";
+  static final String dessertsImage = "lib/assets/svg/Desserts.svg";
+  static final String promotionsImage = "lib/assets/svg/Promotions.svg";
 
   static final String activeHome =
-      "lib/assets/png/TabBarIcons/Active State/001-home.png";
-  static final String inactiveHome = "lib/assets/png/TabBarIcons/001-home.png";
+      "lib/assets/svg/TabBarIcons/ActiveState/001-home.svg";
+  static final String inactiveHome = "lib/assets/svg/TabBarIcons/001-home.svg";
 
   static final String activeMenu =
-      "lib/assets/png/TabBarIcons/Active State/Group 8180.png";
+      "lib/assets/svg/TabBarIcons/ActiveState/Group 8180.svg";
   static final String activeOffers =
-      "lib/assets/png/TabBarIcons/Active State/002-shopping-bag.png";
+      "lib/assets/svg/TabBarIcons/ActiveState/002-shopping-bag.svg";
   static final String activeProfile =
-      "lib/assets/png/TabBarIcons/Active State/man-user.png";
+      "lib/assets/svg/TabBarIcons/ActiveState/man-user.svg";
   static final String activeMore =
-      "lib/assets/png/TabBarIcons/Active State/Group 8179.png";
+      "lib/assets/svg/TabBarIcons/ActiveState/Group 8179.svg";
 
   static final String inactiveMenu =
-      "lib/assets/png/TabBarIcons/Group 6847.png";
+      "lib/assets/svg/TabBarIcons/Group 6847.svg";
   static final String inactiveOffers =
-      "lib/assets/png/TabBarIcons/002-shopping-bag.png";
+      "lib/assets/svg/TabBarIcons/002-shopping-bag.svg";
   static final String inactiveProfile =
-      "lib/assets/png/TabBarIcons/man-user.png";
+      "lib/assets/svg/TabBarIcons/man-user.svg";
   static final String inactiveMore =
-      "lib/assets/png/TabBarIcons/Group 6814.png";
+      "lib/assets/svg/TabBarIcons/Group 6814.svg";
 }

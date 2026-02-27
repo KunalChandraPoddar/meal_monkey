@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/modules/home/home_controller.dart';
@@ -17,36 +18,36 @@ class NavItem extends StatelessWidget {
     required this.inactiveIcon,
   });
 
-  final controller = Get.find<HomeController>();
+  final HomeController controller = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => controller.changeTab(index),
-      child: Obx(() {
-        final bool isActive =
-            controller.selectedIndex.value == index;
+    return Obx(() {
+      final bool isActive = controller.selectedIndex.value == index;
 
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      return GestureDetector(
+        onTap: () => controller.changeTab(index),
+        behavior: HitTestBehavior.opaque,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(
+            SvgPicture.asset(
               isActive ? activeIcon : inactiveIcon,
-              height: 24,
+              key: ValueKey(isActive),
+              height: 15,
+              width: 15,
             ),
-            const SizedBox(height: 5),
             Text(
               label,
               style: TextStyle(
-                fontSize: 12,
                 color: isActive
                     ? AppColors.orangeButtonColor
                     : AppColors.hintTextColor,
               ),
             ),
           ],
-        );
-      }),
-    );
+        ),
+      );
+    });
   }
 }

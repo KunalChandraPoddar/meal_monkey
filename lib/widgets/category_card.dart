@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_text_styles.dart';
 import 'package:meal_monkey/core/constatns/asset_path.dart';
@@ -21,7 +22,7 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 25),
-      height: 90,
+      height: 80,
       child: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.centerLeft,
@@ -68,7 +69,7 @@ class CategoryCard extends StatelessWidget {
               height: 85,
               width: 85,
               decoration: const BoxDecoration(shape: BoxShape.circle),
-              child: ClipOval(child: Image.asset(image, fit: BoxFit.cover)),
+              child: ClipOval(child: SvgPicture.asset(image, fit: BoxFit.cover)),
             ),
           ),
 
@@ -89,7 +90,7 @@ class CategoryCard extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Center(child: Image.asset(AssetPath.arrow, height: 14)),
+              child: Center(child: SvgPicture.asset(AssetPath.arrow, height: 14)),
             ),
           ),
         ],

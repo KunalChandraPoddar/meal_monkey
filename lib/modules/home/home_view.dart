@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:meal_monkey/core/constatns/app_colors.dart';
 import 'package:meal_monkey/core/constatns/app_strings.dart';
 import 'package:meal_monkey/core/constatns/app_text_styles.dart';
@@ -10,13 +11,14 @@ import '../../widgets/bottom_nav.dart';
 
 class HomeView extends StatelessWidget {
   HomeView({super.key});
-
   final controller = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {
+    const double headerHeight = 160.0; 
+
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true, 
       backgroundColor: AppColors.appBackgroundColor,
       bottomNavigationBar: BottomNav(),
       body: SafeArea(
@@ -24,98 +26,83 @@ class HomeView extends StatelessWidget {
           children: [
             Positioned(
               left: 0,
-              top: 150,
-              child: Image.asset(
+              top: headerHeight,
+              child: SvgPicture.asset(
                 AssetPath.orangeSideBar,
-                height: 490,
+                height: 450,
                 width: 95,
                 fit: BoxFit.fill,
               ),
             ),
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 20),
+            Positioned(
+              top: headerHeight,
+              left: 0,
+              right: 0,
+              height: 450,
+              child: Obx(() {
+                final items = controller.filteredCategories;
+                return ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    final item = items[index];
+                    return CategoryCard(
+                      title: item['title'],
+                      items: item['items'],
+                      image: item['image'],
+                      onTap: () {},
+                    );
+                  },
+                );
+              }),
+            ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        AppStrings.menuAppbarText,
-                        style: TextStyle(
-                          fontSize: 26,
-                        ),
-                      ),
-
-                      Image.asset(
-                        AssetPath.shoppingCartIcon,
-                        height: 26,
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(height: 20),
-
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade100,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Row(
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              height: headerHeight,
+              child: Container(
+                color: AppColors.appBackgroundColor,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Image.asset(AssetPath.searchIcon, height: 20),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: AppStrings.searchFoodHintText,
-                              hintStyle: AppTextStyles.hintTextStyle,
-                              border: InputBorder.none,
+                        const Text(AppStrings.menuAppbarText, style: AppTextStyles.headTitle),
+                        SvgPicture.asset(AssetPath.shoppingCartIcon, height: 20),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade100,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(AssetPath.searchIcon, height: 20),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: TextField(
+                              onChanged: (value) => controller.filterSearchResults(value),
+                              decoration: InputDecoration(
+                                hintText: AppStrings.searchFoodHintText,
+                                hintStyle: AppTextStyles.hintTextStyle,
+                                border: InputBorder.none,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-
-                  const SizedBox(height: 30),
-
-                  Expanded(
-                    child: ListView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      children: [
-                        CategoryCard(
-                          title: AppStrings.food,
-                          items: AppStrings.foodItemCount,
-                          image: AssetPath.foodImage,
-                          onTap: () {},
-                        ),
-                        CategoryCard(
-                          title: AppStrings.beverages,
-                          items: AppStrings.beveragesItemCount,
-                          image: AssetPath.beveragesImage,
-                          onTap: () {},
-                        ),
-                        CategoryCard(
-                          title: AppStrings.desserts,
-                          items: AppStrings.dessertsItemCount,
-                          image: AssetPath.dessertsImage,
-                          onTap: () {},
-                        ),
-                        CategoryCard(
-                          title: AppStrings.promotions,
-                          items: AppStrings.promotionsItemCount,
-                          image: AssetPath.promotionsImage,
-                          onTap: () {},
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],

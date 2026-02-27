@@ -34,7 +34,10 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   get: ^4.7.3
+  flutter_svg: ^2.0.10+1
   cupertino_icons: ^1.0.8
+  flutter_native_splash: ^2.4.0
+
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +48,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
+  # flutter_native_splash: ^2.4.0
   flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
@@ -57,6 +61,15 @@ flutter:
     - lib/assets/png/TabBarIcons/
     - lib/assets/png/TabBarIcons/Active State/
     - lib/assets/svg/
+    - lib/assets/svg/TabBarIcons/
+    - lib/assets/svg/TabBarIcons/ActiveState/
+  
+  fonts:
+      - family: Helvetica
+        fonts:
+          - asset: lib/assets/fonts/helvetica-255/Helvetica.ttf
+          - asset: lib/assets/fonts/helvetica-255/Helvetica-Bold.ttf
+            weight: 700
 
 
 
@@ -96,3 +109,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: lib/assets/png/Logo.png
+  background_image: lib/assets/png/Background icons.png
+
+  android_12:
+    color: "#FFFFFF"
+    image: lib/assets/png/Logo.png
+
+  color_dark: "#000000"
+  image_dark: lib/assets/png/Logo.png

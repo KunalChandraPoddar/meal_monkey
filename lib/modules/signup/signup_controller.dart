@@ -30,7 +30,7 @@ class SignupController extends GetxController {
 
     isLoading.value = false;
 
-    Get.offAllNamed(AppRoutes.onboarding);
+    Get.offAllNamed(AppRoutes.home);
   }
 
   void goToLogin() {
